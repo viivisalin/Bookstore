@@ -1,5 +1,8 @@
 package com.example.Bookstore.model;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Book {
 
     private long id;
