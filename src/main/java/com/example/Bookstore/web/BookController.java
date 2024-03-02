@@ -29,7 +29,7 @@ public class BookController {
     @GetMapping("/booklist/add")
     public String showAddBook(Model model) {
         model.addAttribute("book", new Book());
-        return "addBook";
+        return "redirect:/booklist";
     }
 
     @GetMapping("booklist/save")
