@@ -19,7 +19,7 @@ import com.example.Bookstore.model.BookRepository;
 public class BookController {
 
     @Autowired
-    BookRepository bookRepository;
+    private BookRepository bookRepository;
     
     @RequestMapping(value="/books")
     public String showBooks(Model model) {
