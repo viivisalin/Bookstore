@@ -39,8 +39,8 @@ public class BookController {
     }
 
     @GetMapping("/booklist/edit/{id}")
-    public String editBook(@PathVariable("id") Long id, Model model) {
-        Book existingBook = bookRepository.findById(id).orElse(null);
+    public String editBook(@PathVariable("id") Long bookid, Model model) {
+        Book existingBook = bookRepository.findById(bookid).orElse(null);
          if (existingBook != null) {
             model.addAttribute("book", existingBook);
             return "editBook";
@@ -50,8 +50,8 @@ public class BookController {
     }
 
     @GetMapping("/booklist/delete/{id}")
-    public String deleteBook(@PathVariable("id") long id) {
-        bookRepository.deleteById(id);
+    public String deleteBook(@PathVariable("id") Long bookid) {
+        bookRepository.deleteById(bookid);
         return "redirect:/booklist";
     }
 }
