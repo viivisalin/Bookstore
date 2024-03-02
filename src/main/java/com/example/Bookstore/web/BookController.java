@@ -20,17 +20,10 @@ public class BookController {
 
     @Autowired
     private BookRepository bookRepository;
-    
-    @RequestMapping(value="/books")
-    public String showBooks(Model model) {
-    	System.out.println("Books");
-        return "books";
-    }
-    
+
     @RequestMapping(value="/booklist", method=RequestMethod.GET)
-    public String showBookList(Model model) {
-        List<Book> books = (List<Book>) bookRepository.findAll();
-    	System.out.println("Book List");
+    public String BookList(Model model) {
+        model.addAttribute("books", bookRepository.findAll()); 
         return "booklist";
     }
 
