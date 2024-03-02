@@ -23,22 +23,33 @@ public class BookController {
     @RequestMapping(value="/booklist", method=RequestMethod.GET)
     public String BookList(Model model) {
         model.addAttribute("books", bookRepository.findAll()); 
-        return "booklist";
+        return "bookList";
     }
 
-    @GetMapping("/books/add")
+    @GetMapping("/booklist/add")
     public String showAddBook(Model model) {
         model.addAttribute("book", new Book());
-        return "addbook";
+        return "addBook";
     }
 
-    @GetMapping("/addbook")
+    @GetMapping("booklist/save")
     public String addBook(@ModelAttribute Book book) {
         bookRepository.save(book);
         return "redirect:/booklist";
     }
 
-    @GetMapping("/books/delete/{id}")
+    @GetMapping("/booklist/edit/{id}")
+    public String editBook(@PathVariable("id") Long id, Model model) {
+        Book existingBook = bookRepository.findById(id).orElse(null);
+         if (existingBook != null) {
+            model.addAttribute("book", existingBook);
+            return "editBook";
+         } else {
+            return "error";
+         }
+    }
+
+    @GetMapping("/booklist/delete/{id}")
     public String deleteBook(@PathVariable("id") long id) {
         bookRepository.deleteById(id);
         return "redirect:/booklist";
