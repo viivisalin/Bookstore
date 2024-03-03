@@ -32,7 +32,7 @@ public class BookController {
         return "redirect:/booklist";
     }
 
-    @GetMapping("booklist/add")
+    @GetMapping("booklist/save")
     public String addBook(@ModelAttribute Book book) {
         bookRepository.save(book);
         return "redirect:/booklist";
