@@ -29,10 +29,10 @@ public class BookController {
     @GetMapping("/booklist/add")
     public String showAddBook(Model model) {
         model.addAttribute("book", new Book());
-        return "redirect:/booklist";
+        return "booklist/add";
     }
 
-    @GetMapping("booklist/save")
+    @GetMapping("booklist/add")
     public String addBook(@ModelAttribute Book book) {
         bookRepository.save(book);
         return "redirect:/booklist";
