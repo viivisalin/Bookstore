@@ -24,13 +24,13 @@ public class BookController {
         return "bookList";
     }
 
-    @GetMapping("/booklist/add")
+    @GetMapping("/addbook")
     public String showAddBook(Model model) {
         model.addAttribute("book", new Book());
-        return "redirect:/booklist";
+        return "addBook";
     }
 
-    @GetMapping("booklist/save")
+    @GetMapping("addbook")
     public String addBook(@ModelAttribute Book book) {
         bookRepository.save(book);
         return "redirect:/booklist";
