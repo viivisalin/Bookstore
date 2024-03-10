@@ -13,7 +13,7 @@ public class Category {
     private Long categoryId;
     private String name;
 
-    public Category() {
+    public Category(int i, String string) {
     }
 
     public Category(String name) {

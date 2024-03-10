@@ -62,12 +62,12 @@ public class Book {
     public void setPublicationYear(int publicationYear) {
         this.publicationYear = publicationYear;
     }
-    public Category getCategory() {
+    /*public Category getCategory() {
         return category;
     }
     public void setCategory(Category category) {
         this.category = category;
-    }
+    }*/
     public String getIsbn() {
         return isbn;
     }
@@ -84,7 +84,7 @@ public class Book {
     @Override
     public String toString() {
         return "Book [bookid=" + bookid + ", title=" + title + ", author=" + author + ", publicationYear=" + publicationYear
-                + ", isbn=" + isbn + ", price=" + price + " category =" + this.getCategory() +"]";
+                + ", isbn=" + isbn + ", price=" + price + /* " category =" + this.getCategory() +*/"]";
     }
 
     
