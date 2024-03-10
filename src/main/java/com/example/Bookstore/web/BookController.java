@@ -27,7 +27,7 @@ public class BookController {
     @GetMapping("/addbook")
     public String showAddBook(Model model) {
         model.addAttribute("book", new Book());
-        return "addBook";
+        return "addbook";
     }
 
     @GetMapping("addbook")

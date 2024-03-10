@@ -1,9 +1,13 @@
 package com.example.Bookstore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Book {
@@ -17,13 +21,19 @@ public class Book {
     private String isbn;
     private double price;
 
+    @ManyToOne
+    @JsonIgnoreProperties ("books")
+    @JoinColumn(name = "categoryId")
+    private Category category;
+
     public Book() {
     }
 
-    public Book(String title, String author, int publicationYear, String isbn, double price) {
+    public Book(String title, String author, int publicationYear, Category category, String isbn, double price) {
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
+        this.category = category;
         this.isbn = isbn;
         this.price = price;
     }
@@ -52,6 +62,12 @@ public class Book {
     public void setPublicationYear(int publicationYear) {
         this.publicationYear = publicationYear;
     }
+    public Category getCategory() {
+        return category;
+    }
+    public void setCategory(Category category) {
+        this.category = category;
+    }
     public String getIsbn() {
         return isbn;
     }
@@ -68,7 +84,7 @@ public class Book {
     @Override
     public String toString() {
         return "Book [bookid=" + bookid + ", title=" + title + ", author=" + author + ", publicationYear=" + publicationYear
-                + ", isbn=" + isbn + ", price=" + price + "]";
+                + ", isbn=" + isbn + ", price=" + price + " category =" + this.getCategory() +"]";
     }
 
     
