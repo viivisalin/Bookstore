@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -24,13 +25,13 @@ public class BookController {
         return "bookList";
     }
 
-    @GetMapping("/addbook")
+    @GetMapping("/showaddform")
     public String showAddBook(Model model) {
         model.addAttribute("book", new Book());
         return "addbook";
     }
 
-    @GetMapping("addbook")
+    @PostMapping("/addbook")
     public String addBook(@ModelAttribute Book book) {
         bookRepository.save(book);
         return "redirect:/booklist";
@@ -52,4 +53,9 @@ public class BookController {
         bookRepository.deleteById(bookid);
         return "redirect:/booklist";
     }
+
+    @RequestMapping(value="/login")
+	public String login() {
+		return "login";
+	}    
 }
