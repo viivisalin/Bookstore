@@ -13,10 +13,11 @@ public class Category {
     private Long categoryId;
     private String name;
 
-    public Category(int i, String string) {
+    public Category() {
     }
 
-    public Category(String name) {
+    public Category(Long categoryId, String name) {
+        this.categoryId = categoryId;
         this.name = name;
     }
 

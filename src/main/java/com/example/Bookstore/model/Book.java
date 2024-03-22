@@ -13,7 +13,7 @@ import jakarta.persistence.ManyToOne;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookid;
     private String title;
     private String author;
@@ -29,7 +29,8 @@ public class Book {
     public Book() {
     }
 
-    public Book(String title, String author, int publicationYear, Category category, String isbn, double price) {
+    public Book(Long bookid, String title, String author, int publicationYear, Category category, String isbn, double price) {
+        this.bookid = bookid;
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
