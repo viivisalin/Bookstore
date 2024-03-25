@@ -29,7 +29,7 @@ public class CategoryController {
 
     @PostMapping("categorylist/add")
     public String addCategory(@RequestParam("name") String name) {
-        Category category = new Category(null, name);
+        Category category = new Category(name);
         categoryRepository.save(category);
         return "redirect:/categorylist";
     }
