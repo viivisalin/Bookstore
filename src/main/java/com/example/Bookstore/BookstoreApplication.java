@@ -24,8 +24,8 @@ public class BookstoreApplication {
 	public CommandLineRunner bookDemo(BookRepository bRepository, CategoryRepository cRepository) {
 		return (args) -> {
 			log.info("save some sample categories");
-			cRepository.save(new Category(1L, "Scifi"));
-			cRepository.save(new Category(2L, "Comic"));
+			cRepository.save(new Category(1L, "Science"));
+			cRepository.save(new Category(2L, "Politics"));
 			cRepository.save(new Category(3L, "Fiction"));
 
 			bRepository.save(new Book(4L, "A Farewell to Arms", "Ernest Hemingway", 1929, null, "1232323-21",24.95));
